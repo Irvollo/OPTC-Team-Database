@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fight:</strong>
+  <%= @fight.fight %>
+</p>
+
+<p>
+  <strong>Stamina:</strong>
+  <%= @fight.stamina %>
+</p>
+
+<p>
+  <strong>Stages:</strong>
+  <%= @fight.stages %>
+</p>
+
+<p>
+  <strong>Server:</strong>
+  <%= @fight.server %>
+</p>
+
+<%= link_to 'Edit', edit_fight_path(@fight) %> |
+<%= link_to 'Back', fights_path %>
