@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fight:</strong>
+  <%= @run.fight_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @run.user_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @run.title %>
+</p>
+
+<p>
+  <strong>Run desc:</strong>
+  <%= @run.run_desc %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @run.duration %>
+</p>
+
+<p>
+  <strong>Captain type:</strong>
+  <%= @run.captain_type %>
+</p>
+
+<p>
+  <strong>Youtube url:</strong>
+  <%= @run.youtube_url %>
+</p>
+
+<p>
+  <strong>Db team url:</strong>
+  <%= @run.db_team_url %>
+</p>
+
+<%= link_to 'Edit', edit_run_path(@run) %> |
+<%= link_to 'Back', runs_path %>
