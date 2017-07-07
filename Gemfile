@@ -48,10 +48,6 @@ group :development do
   gem 'spring'
   
   #Define postgresql to production
-  
-  # Use Puma as the app server
-  gem 'puma'
-  
   group :production do
   gem 'pg', '0.18.4'
 end
