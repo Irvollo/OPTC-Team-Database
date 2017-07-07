@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Welcome to the OPTC - Team Database" 
+      flash[:success] = "#{@user.name}, Welcome to the OPTC - Team Database!" 
       redirect_to @user
     else
       render 'new'
