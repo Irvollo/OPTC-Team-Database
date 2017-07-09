@@ -7,19 +7,19 @@ class StaticPagesControllerTest < ActionController::TestCase
   end
   
   test "should get home" do
-    get root_path
+    get :home
     assert_response :success
     assert_select "title", "Home | #{@base_title}"
   end
 
   test "should get help" do
-    get help_path
+    get :help
     assert_response :success
     assert_select "title", "Help | #{@base_title}"
   end
   
   test "should get about" do
-    get about_path
+    get :about
     assert_response :success
     assert_select "title", "About | #{@base_title}"
   end
