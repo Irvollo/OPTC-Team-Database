@@ -1,5 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 luffy:
   name: Monkey D. Luffy
-  email: thepirateking@raftel.com
+  email: luffy@onepiece.com
+  password_digest: <%= User.digest('onepiece') %>
+  
+Zoro:
+  name: Roronoa Zoro
+  email: zoro@onepiece.jp
   password_digest: <%= User.digest('onepiece') %>
