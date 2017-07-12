@@ -57,18 +57,39 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     test "should redirect edit when log in as wrong user" do
       log_in_as(@other_user)
       get edit_user_path(@user)
-      assert flash.empty?
-      assert_redirected_to root_url
+      assert_not flash.empty?
+      assert_redirected_to root_path
     end
     
     test "should redirect update when log in as wrong user" do
       log_in_as(@other_user)
-      patch user_path(@user), user {
+      patch user_path(@user), user: {
         name:@user.name,
         email:@user.email
       }
-      assert flash.empty?
-      assert_redirected_to root_url
+      assert_not flash.empty?
+      assert_redirected_to root_path
+    end
+    
+    test "succesful edit with friendly forwarding" do
+      #Try to visit the edit test
+      get edit_user_path(@user)
+      # Log in as user
+      log_in_as(@user)
+      #Check if the user is redirected to the edit test, instead of the default page
+      assert_redirected_to edit_user_url(@user)
+      name = "Foo Bar"
+      email = "foo@bar.com"
+      patch user_path(@user), user: {
+        name: name,
+        email: email,
+        password:"",
+        password_confirmation: "" }
+      assert_not flash.empty?
+      assert_redirected_to @user
+      @user.reload
+      assert_equal name, @user.name
+      assert_equal email, @user.email
     end
     
 end

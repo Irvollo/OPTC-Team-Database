@@ -4,7 +4,7 @@ luffy:
   email: luffy@onepiece.com
   password_digest: <%= User.digest('onepiece') %>
   
-Zoro:
+zoro:
   name: Roronoa Zoro
   email: zoro@onepiece.jp
   password_digest: <%= User.digest('onepiece') %>
