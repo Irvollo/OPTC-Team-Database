@@ -1,50 +1,48 @@
 require 'test_helper'
 
-class UsersControllerTest < ActionController::TestCase
+class UsersControllerTest < ActionDispatch::IntegrationTest
+ 
   setup do
     @user = users(:luffy)
+    @other_user = users(:zoro)
   end
-
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:users)
-  end
-
+  
   test "should get new" do
-    get :new
-    assert_response :success
+   get new_user_path
+   assert_response :success
   end
 
-  #test "should create user" do
-   # assert_difference('User.count') do
-  #    post :create, user:{ email: @user.email, name: @user.name }
-  #  end
-   # assert_redirected_to user_path(assigns(:user))
-  #end
+  test "should redirect index when not logged in" do
+    get users_path
+    assert_redirected_to login_url
+  end
   
+  test "should not allow the admin attribute to be edited via the web" do
+   log_in_as(@other_user)
+   assert_not @other_user.admin?
+   patch user_path(@other_user), user: {
+    password: "",
+    password_confirmation: "",
+    admin: 1
+   }
+   assert_not @other_user.reload.admin?
+  end
   
-  #test "should show user" do
-   # get :show, id: @user
-    #assert_response :success
-  #end
+  test "should redirect destroy when not logged in" do
+   assert_no_difference 'User.count' do
+    delete user_path(@user)
+   end
+   assert_redirected_to login_url
+  end
+  
+  test "should redirect destroy when logged_in as non admin" do
+   log_in_as(@other_user)
+   assert_no_difference 'User.count' do
+    delete user_path(@user)
+   end
+   assert_redirected_to root_url
+  end
+  
 
-  #test "should get edit" do
-   # get :edit, id: @user
-    #assert_response :success
-  #end
-
-  #test "should update user" do
-   # patch :update, id: @user, user: { email: @user.email, name: @user.name }
-    #assert_redirected_to user_path(assigns(:user))
-  #end
-
-  #test "should destroy user" do
-   # assert_difference('User.count', -1) do
-    #  delete :destroy, id: @user
-    #end
-    #flash[:danger] = "Logged out"
-    #assert_redirected_to users_path#
-    #end
  
 end

@@ -1,13 +1,16 @@
 class UsersController < ApplicationController
-#Filter the users that are not logged in, only allow logged in users to edit and update
-before_action :logged_in_user, only:[:edit, :update]
+#Filter the users that are not logged in, only allow logged in users to edit, update and see the complete list of users.
+before_action :logged_in_user, only:[:index, :edit, :update, :destroy]
 # Filter that the current user is the one that wants to edit
 before_action :correct_user, only:[:edit, :update]
+#Ensure that only admins can issue delete request from the command line
+before_action :admin_user, only: :destroy
+
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end
 
   # GET /users/1
@@ -54,11 +57,9 @@ before_action :correct_user, only:[:edit, :update]
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_url
   end
 
   private
@@ -87,5 +88,10 @@ before_action :correct_user, only:[:edit, :update]
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+    
+    #Confirms that is and admin user
+    def admin_user 
+      redirect_to(root_url) unless current_user.admin?
     end
 end
