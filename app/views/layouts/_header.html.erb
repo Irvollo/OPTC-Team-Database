@@ -1,7 +1,8 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
+    <%= link_to image_tag("logo.png", alt: "logo"), '/', class: 'navbar-brand' %>
     <%= link_to "OPTC Teams", root_path, id: "logo" %>
-    <nav>
+    <nav
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Help", help_path %></li>
         <% if logged_in? %>
