@@ -57,7 +57,6 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     test "should redirect edit when log in as wrong user" do
       log_in_as(@other_user)
       get edit_user_path(@user)
-      assert_not flash.empty?
       assert_redirected_to root_path
     end
     
@@ -67,7 +66,6 @@ class UsersEditTest < ActionDispatch::IntegrationTest
         name:@user.name,
         email:@user.email
       }
-      assert_not flash.empty?
       assert_redirected_to root_path
     end
     
