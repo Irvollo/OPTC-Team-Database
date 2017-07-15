@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   get 'sessions/new'
 
    # You can have the root of your site routed with "root"
@@ -19,6 +23,8 @@ Rails.application.routes.draw do
   resources :users
   #Get resources for the email activation
   resources :account_activations, only: [:edit]
+  #Get to create new password resets and updating them
+  resources :password_resets, only: [:new, :create, :edit, :update]
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
