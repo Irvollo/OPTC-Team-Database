@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  fight: MyString
+  fight_name: MyString
   stamina: 1
   stages: 1
-  server: MyString
+  fight_type: MyString
 
 two:
-  fight: MyString
+  fight_name: MyString
   stamina: 1
   stages: 1
-  server: MyString
+  fight_type: MyString

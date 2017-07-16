@@ -1,4 +1,4 @@
 class Run < ActiveRecord::Base
-    belongs_to :user
-    belongs_to :fight
+  belongs_to :fight
+  belongs_to :user
 end
