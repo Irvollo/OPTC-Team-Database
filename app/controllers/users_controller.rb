@@ -17,6 +17,7 @@ before_action :admin_user, only: :destroy
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @runs = @user.runs.paginate(page: params[:page])
     redirect_to root_url and return unless @user.activated?
   end
 

@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
     before_save :downcase_email
     before_create :create_activation_digest
     
-    has_many :runs
+    has_many :runs, dependent: :destroy
     
     validates :name,    length: {maximum: 50},
                         presence: true

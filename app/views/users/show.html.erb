@@ -6,7 +6,16 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
-      Creation date: <%= @user.created_at %>
+      Creation date: <%= time_ago_in_words(@user.created_at) %> ago
     </section>
   </aside>
+  <div class="col-md-8">
+    <% if @user.runs.any? %>
+      <h3>Runs (<%= @user.runs.count %>)</h3>
+      <ol class="runs">
+        <%= render @runs %>
+      </ol>
+      <%= will_paginate @runs %>
+    <% end %>
+  </div>
 </div>

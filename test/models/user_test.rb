@@ -68,4 +68,17 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?(:remember, '')
   end
   
+  test "associated runs should be destroyed" do
+    @user.save
+    @user.runs.create!(fight_id: 1,
+                      captain_class:  "Striker" , 
+                      description:  "This is a short description for the video" , 
+                      youtube_url:  "https://www.youtube.com/watch?v=HC9uIS_SepY" , 
+                      title:  "2x SW Ace, Don Chinjao, Raid Kuma, Intvankov ,Raid Zephyr" , 
+                      server:  "Global" )
+    assert_difference 'Run.count', -1 do
+      @user.destroy
+    end
+  end
+  
 end
