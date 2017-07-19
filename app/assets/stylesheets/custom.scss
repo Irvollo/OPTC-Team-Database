@@ -226,3 +226,27 @@ input {
 
 }
 
+// Social votes
+
+.social-vote{
+  margin-top:3px;
+  text-align:center;
+}
+
+.social-like:hover {
+  text-decoration:none;
+  color:#339966;
+}
+
+.social-dislike:hover{
+  text-decoration:none;
+  color:#ff6666;
+}
+
+.social-like:active, .social-dislike:active {
+  background-color: #3299CD;
+}
+
+.social-like:active .count, .social-dislike:active .dislike {
+  background-color: #3299CD;
+}
