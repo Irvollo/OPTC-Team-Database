@@ -75,16 +75,6 @@ before_action :admin_user, only: :destroy
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
     
-    #Before Filter
-    
-    #Confirms that the user is logged in
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in"
-        redirect_to login_url
-      end
-    end
     
     #Define the correct user
     def correct_user

@@ -1,0 +1,44 @@
+<div id="run-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Add a new team</h4>
+      </div>
+      <%= form_for @run, remote: true do |f| %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= f.label :title %><br>
+            <%= f.text_field :title, class: "form-control input-lg", placeholder: "eg. '2x Captain, crew1, crew2, crew3, crew4'" %>
+            Title should be: '2x Captain, crew1, crew2, crew3, crew4' or 'Captain1 + Captain2, crew1, crew2, crew3, crew4'
+          </div>
+          <div class="form-group">
+            <%= f.label :youtube_url %><br>
+            <%= f.text_field :youtube_url, class: "form-control input-lg", placeholder: "eg. https://www.youtube.com/watch?v=tJlGaPgQXFo" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :captain_class %><br>
+            <%= f.select :captain_class, [['STR'], ['QCK'], ['DEX'], ['PSY'], ['INT'], ['Fighter'], ['Striker'], ['Slasher'], ['Shooter'], ['Driven'], ['Cerebral'], ['Free Spirit'], ['Powerhouse']] %>
+          </div>
+          <div class="form-group">
+            <%= f.label :fight_id %><br>
+            <%= f.collection_select :fight_id, Fight.all, :id, :boss%>
+          </div>
+          <div class="form-group">
+            <%= f.label :server %><br>
+            <%= f.select :server, [['Global'], ['Japan']] %>
+          </div>
+          <div class="form-group">
+            <%= f.label :description %><br>
+            <%= f.text_field :description, class: "form-control input-lg" %>
+          </div>
+          
+        </div>
+
+        <div class="modal-footer">
+          <%= f.submit class: "btn btn-primary btn-lg btn-block" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

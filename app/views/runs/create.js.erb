@@ -1,0 +1,7 @@
+<% if @run.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('#run-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @run.errors.full_messages[0] %>');
+<% end %>
