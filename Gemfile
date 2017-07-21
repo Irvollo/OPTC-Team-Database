@@ -56,6 +56,7 @@ group :development do
   #Define postgresql to production
   group :production do
   gem 'pg', '0.18.4'
+  gem 'rails_12factor'
 end
   
 end
