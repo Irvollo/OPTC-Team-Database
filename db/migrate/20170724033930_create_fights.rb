@@ -1,10 +1,10 @@
 class CreateFights < ActiveRecord::Migration
   def change
     create_table :fights do |t|
-      t.string :boss
+      t.references :level, index: true, foreign_key: true
       t.integer :stamina
+      t.string :boss
       t.integer :stages
-      t.string :category
 
       t.timestamps null: false
     end

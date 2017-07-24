@@ -24,7 +24,7 @@ class Run < ActiveRecord::Base
   #Validates that the title is in format "2x (Captain), (crew1),(crew2),(crew3),(crew4) or (captain1) + (captain2),(crew1),(crew2),(crew3),(crew4) "
   VALID_TITLE_URL = /(\A2x([^,]*,){4}([^,]*)\z|\A([^,]*+)([^,]*,){4}([^,]*)\z)/
   validates :title, presence:true,
-                    format: { with:VALID_TITLE_URL, message:"Title should be 2x (Captain), (Crew#1), (Crew#2), (Crew#3), (Crew#4) for same captain teams or (Captain1) + (Captain2), (Crew#1), (Crew#2), (Crew#3), (Crew#4) for different captains"}
+                    format: { with:VALID_TITLE_URL, message:"should be 2x (Captain), (Crew#1), (Crew#2), (Crew#3), (Crew#4) for same captain teams or (Captain1) + (Captain2), (Crew#1), (Crew#2), (Crew#3), (Crew#4) for different captains"}
   
   #Validates that the server is a valid type
   validates :server,  presence:true
@@ -36,6 +36,11 @@ class Run < ActiveRecord::Base
     parameters['v']
   end  
   
+  def self.search(search)
+    where("title LIKE ?", "%#{search}%") 
+    where("description LIKE ?", "%#{search}%")
+  end
+
                       
   
 end

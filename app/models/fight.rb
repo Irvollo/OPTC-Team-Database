@@ -1,5 +1,6 @@
 class Fight < ActiveRecord::Base
-    has_many :runs
+  belongs_to :level
+  has_many :runs
     
     #Boss name should be present
     validates :boss, presence: true
@@ -13,7 +14,6 @@ class Fight < ActiveRecord::Base
                         inclusion: 1..20
 
     #Validates that is either a Raid, Colosseum or Forest
-    validates :category, presence: true
-                         
-    
+    validates :level_id, presence: true
+  
 end

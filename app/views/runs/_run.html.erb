@@ -24,7 +24,7 @@
                 <small>
                     <i class="glyphicon glyphicon-time"></i> <%= time_ago_in_words(run.created_at) %> ago by <span><%= link_to run.user.name, root_url %></a></span>
                     <br>
-                    <span class="explore"><i class="glyphicon glyphicon-info-sign"></i><%= link_to " #{run.fight.category} #{run.fight.boss} - #{run.fight.stamina} stamina", root_url %></span>
+                    <span class="explore"><i class="glyphicon glyphicon-info-sign"></i><%= link_to " #{run.fight.level.name} #{run.fight.boss} - #{run.fight.stamina} stamina", root_url %></span>
                     <br>
                     <span class="explore"><i class="glyphicon glyphicon-tags"></i>   <%= link_to run.captain_class, root_url %></span>
                     <br>

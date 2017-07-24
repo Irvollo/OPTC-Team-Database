@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   #Get to create new password resets and updating them
   resources :password_resets, only: [:new, :create, :edit, :update]
   #Run should only allow to create and destroy.
-  resources :runs,          only: [:new, :create, :destroy]
+  resources :runs,          only: [:new, :create, :destroy, :index]
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

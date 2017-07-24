@@ -18,6 +18,17 @@ class RunsController < ApplicationController
         @run = Run.new
     end
     
+    
+      #Search for runs
+  def index
+    @runs = Run.all
+    if params[:search]
+      @posts = Run.search(params[:search]).order("created_at DESC")
+    else
+      @posts = Run.all.order('created_at DESC')
+    end
+  end
+    
     private
     
     def run_params

@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170716000037) do
+ActiveRecord::Schema.define(version: 20170724033930) do
 
   create_table "fights", force: :cascade do |t|
-    t.string   "boss"
+    t.integer  "level_id"
     t.integer  "stamina"
+    t.string   "boss"
     t.integer  "stages"
-    t.string   "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "fights", ["level_id"], name: "index_fights_on_level_id"
+
+  create_table "levels", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-vista_colo:
-  level_id: 1
-  stamina: 30
-  boss: vista
-  stages: 5
+one:
+  name: MyString
+
+two:
+  name: MyString

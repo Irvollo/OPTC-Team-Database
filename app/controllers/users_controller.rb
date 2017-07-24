@@ -23,7 +23,11 @@ before_action :admin_user, only: :destroy
 
   # GET /users/new
   def new
-    @user = User.new
+    if !logged_in?
+      @user = User.new
+    else
+      redirect_to root_url
+    end
   end
 
   # GET /users/1/edit
