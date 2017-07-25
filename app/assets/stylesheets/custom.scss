@@ -121,6 +121,7 @@ $gray-medium-light: #eaeaea;
 
 aside {
   section.user_info {
+    position: fixed;
     margin-top: 20px;
   }
   section {
@@ -147,6 +148,7 @@ aside {
 
 .gravatar {
   float: left;
+  border-radius: 25px;
   margin-right: 10px;
 }
 
