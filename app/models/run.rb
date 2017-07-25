@@ -2,6 +2,8 @@ class Run < ActiveRecord::Base
   belongs_to :fight
   belongs_to :level
   belongs_to :user
+  acts_as_votable
+  
   #This set the order with created at runs appearing first
   default_scope -> {order(created_at: :desc)}
   
@@ -40,8 +42,6 @@ class Run < ActiveRecord::Base
     parameters = Hash[URI.decode_www_form(query_string)]
     parameters['v']
   end  
-  
-
 
                       
   

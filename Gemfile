@@ -34,6 +34,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Puma as the app server
 gem 'puma'
 
+#Vote functionalty
+gem 'acts_as_votable'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -52,13 +55,13 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
   
   #Define postgresql to production
-  group :production do
+group :production do
   gem 'pg', '0.18.4'
   gem 'rails_12factor', group: :production
 end
   
-end
 
 

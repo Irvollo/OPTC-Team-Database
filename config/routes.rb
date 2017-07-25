@@ -25,7 +25,13 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   #Run should only allow to create and destroy.
   resources :runs,          only: [:new, :create, :destroy, :index]
-  
+  resources :runs do 
+    member do
+      put "like", to: "runs#upvote"
+      put "dislike", to: "runs#downvote"
+    end
+  end
+    
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -28,6 +28,18 @@ class RunsController < ApplicationController
       @posts = Run.all.order('created_at DESC')
     end
   end
+  
+  def upvote 
+    @run = Run.find(params[:id])
+    @run.upvote_by current_user
+    redirect_to :back
+  end  
+
+  def downvote
+    @run = Run.find(params[:id])
+    @run.downvote_by current_user
+    redirect_to :back
+  end
     
     private
     
