@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170724033930) do
+ActiveRecord::Schema.define(version: 20170724182021) do
 
   create_table "fights", force: :cascade do |t|
     t.integer  "level_id"
@@ -40,10 +40,12 @@ ActiveRecord::Schema.define(version: 20170724033930) do
     t.string   "server"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "level_id"
   end
 
   add_index "runs", ["created_at", "user_id"], name: "index_runs_on_created_at_and_user_id"
   add_index "runs", ["fight_id"], name: "index_runs_on_fight_id"
+  add_index "runs", ["level_id"], name: "index_runs_on_level_id"
   add_index "runs", ["user_id"], name: "index_runs_on_user_id"
 
   create_table "users", force: :cascade do |t|

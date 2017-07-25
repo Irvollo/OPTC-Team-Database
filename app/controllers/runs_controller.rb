@@ -32,7 +32,7 @@ class RunsController < ApplicationController
     private
     
     def run_params
-        params.require(:run).permit(:fight_id,:captain_class, :description ,:youtube_url, :title, :server)
+        params.require(:run).permit(:fight_id,:captain_class, :description ,:youtube_url, :title, :server, :level_id)
     end
     
 end
