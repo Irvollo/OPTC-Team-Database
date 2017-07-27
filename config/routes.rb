@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :searches
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
    # You can have the root of your site routed with "root"
-  root 'static_pages#home'
+  root 'searches#new'
   get '/home', to: 'static_pages#home' 
   get '/about', to: 'static_pages#about' 
   get '/help', to: 'static_pages#help'
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+  get '/search', to: 'searches#new'
   delete '/logout', to: 'sessions#destroy'
   
 
@@ -31,6 +33,9 @@ Rails.application.routes.draw do
       put "dislike", to: "runs#downvote"
     end
   end
+  
+  #Get search resources
+  resources :searches
     
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

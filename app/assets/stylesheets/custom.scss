@@ -120,6 +120,11 @@ $gray-medium-light: #eaeaea;
 /* sidebar */
 
 aside {
+  section.search_box {
+    position: fixed;
+    margin-top: 10px;
+    margin-bottom: 90px;
+  }
   section.user_info {
     position: fixed;
     margin-top: 20px;

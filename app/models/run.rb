@@ -24,8 +24,9 @@ class Run < ActiveRecord::Base
   
   #Validates that is a valid youtube url
   VALID_YOUTUBE_URL = /(?:http:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]*)/
-  validates :youtube_url, presence:true, 
-                          format: { with:VALID_YOUTUBE_URL }
+  validates :youtube_url, presence: true, 
+                          format: { with:VALID_YOUTUBE_URL },
+                          uniqueness: {scope: :youtube_url, message: "should be unique for each account"}
   
   #Validates that the title is in format "2x (Captain), (crew1),(crew2),(crew3),(crew4) or (captain1) + (captain2),(crew1),(crew2),(crew3),(crew4) "
   VALID_TITLE_URL = /(\A2x([^,]*,){4}([^,]*)\z|\A([^,]*+)([^,]*,){4}([^,]*)\z)/

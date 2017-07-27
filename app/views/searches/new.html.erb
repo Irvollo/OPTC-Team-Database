@@ -1,0 +1,39 @@
+<div class="row">
+    <aside class="col-sm-12 col-md-3">
+        <section class="search_box">
+            <%= form_for @search do |f| %>
+              <div class="form-group">
+                <%= f.label :keywords  %>
+                <%= f.text_field :keywords, class:"form-control input-sm" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :level_id, "Fight type:" %><br />
+                <%= f.collection_select :level_id, Level.all, :id, :name, include_blank: true %>
+             </div>
+              <div class="form-group">
+                <%= f.label :fight_id, "Boss name:" %><br>
+                <%= f.grouped_collection_select :fight_id, Level.all, :fights, :name, :id, :boss, include_blank: true %>
+              </div>
+              <div class="form-group">
+                <%= f.label :captain_class, "Captain ability class:" %><br>
+                <% grouped_options = [['Type'], ['STR', 'DEX', 'QCK', 'PSY','INT']], [['Class 1'], ['Fighter', 'Slasher', 'Stricker', 'Shooter']], [['Class 2'], ['Free Spirit', 'Driven', 'Cereral', 'Powerhouse']], [['Other'], ['Other']] %>
+                <%= f.select :captain_class, grouped_options_for_select(grouped_options), include_blank: true %>
+              </div>
+              <div class="form-group">
+                <%= f.label :server %><br>
+                <%= f.select :server, [['Global'], ['Japan']], include_blank: true %>
+              </div>
+              <p><%= f.submit "Search" , class: "btn btn-primary"  %></p>
+            <% end %>
+        </section>
+    </aside>
+    <div class="col-sm-12 col-md-9">
+        <div class="runs">
+            <% if !@search%> 
+              <%= render @runs %>
+            <% else %>
+              <%= render @search.runs %>
+            <% end %>  
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<h1>Runs</h1>
+
+<%= form_tag runs_path, method: :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= button_tag "Search", name: nil %>
+  </p>
+<% end %>
+
+<p><%= link_to "Advanced Search", new_search_path %></p>
+
+<div id="runs">
+  <%= render @runs %>
+</div>

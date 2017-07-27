@@ -1,6 +1,7 @@
 class Fight < ActiveRecord::Base
   belongs_to :level
   has_many :runs
+  has_many :searches
     
     #Boss name should be present
     validates :boss, presence: true

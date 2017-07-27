@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  keywords: MyString
+  captain_class: MyString
+  level_id: 
+  fight_id: 
+  server: MyString
+
+two:
+  keywords: MyString
+  captain_class: MyString
+  level_id: 
+  fight_id: 
+  server: MyString
