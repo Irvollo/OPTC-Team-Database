@@ -5,24 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'csv'
 
-
-User.create!(name: "Monkey D. Luffy", 
-             email:"thepirateking@onepiece.jp",
-             password:"raftel2017",
-             password_confirmation:"raftel2017",
-             admin: true,
-             activated: true,
-             activated_at: Time.zone.now)
-
-99.times do |n|
-  name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
-  User.create!(name:  name,
-              email: email,
-              password:              password,
-              password_confirmation: password,
-              activated: true,
-              activated_at: Time.zone.now)
+#Read de csv
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'fights.csv'))
+#Ecnode the csv
+csv = CSV.parse(csv_text, headers: true, encoding: 'iso-8859-1:utf-8')
+csv.each do |row|
+  fight = Fight.new
+  fight.level_id = row['level']
+  fight.stamina = row['stamina']
+  fight.boss = row['boss']
+  fight.stages = row['stages']
+  fight.save
+  puts "#{fight.boss}, #{fight.stamina}, #{fight.stages} saved"
 end

@@ -28,6 +28,9 @@
         </section>
     </aside>
     <div class="col-sm-12 col-md-9">
+        <% if @search.runs.count == 0 %>
+          <h3> No results for this search =(</h3>  
+        <% end %>
         <div class="runs">
             <% if !@search%> 
               <%= render @runs %>
