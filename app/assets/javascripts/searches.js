@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function() {});
 jQuery(function() {
     var fights;
     fights = $('#search_fight_id').html();
