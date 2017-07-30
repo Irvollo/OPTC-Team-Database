@@ -43,7 +43,10 @@ class Run < ActiveRecord::Base
     parameters = Hash[URI.decode_www_form(query_string)]
     parameters['v']
   end  
-
+  
+  def youtube_embed
+    return "https://www.youtube.com/embed/" + self.youtube_id + "?autoplay=1"
+  end
                       
   
 end

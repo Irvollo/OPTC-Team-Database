@@ -1,5 +1,6 @@
 class RunsController < ApplicationController
     before_action :logged_in_user, only: [:create, :destroy]
+    before_action :correct_user, only: :destroy
     
     def create
         @run = current_user.runs.create(run_params)
@@ -12,15 +13,27 @@ class RunsController < ApplicationController
     end
     
     def destroy
+      @run.destroy
+      flash[:success] = "Run deleted"
+      redirect_to request.referrer || root_url
     end
     
     def new
         @run = Run.new
     end
     
+    #Show the run video
+    def show 
+      @run = Run.find(params[:id])
+      if @run.nil?
+        redirect_to root_url
+      end
+    end
+    
     
       #Search for runs
   def index
+    redirect_to root_url
     @runs = Run.all
     if params[:search]
       @posts = Run.search(params[:search]).order("created_at DESC")
@@ -45,6 +58,11 @@ class RunsController < ApplicationController
     
     def run_params
         params.require(:run).permit(:fight_id,:captain_class, :description ,:youtube_url, :title, :server, :level_id)
+    end
+    
+    def correct_user
+      @run = current_user.runs.find_by(id: params[:id])
+      redirect_to root_url if @run.nil?
     end
     
 end

@@ -19,17 +19,19 @@
             <div class="list-group">
             <div class="list-group-item">
                 <div class="row-content">
-                    <h4><%= link_to run.title, root_url %></h4>
+                    <h4><%= link_to run.title, run %></h4>
                     <p><%= run.description %></p>
                 <small>
-                    <i class="glyphicon glyphicon-time"></i> <%= time_ago_in_words(run.created_at) %> ago by <span><%= link_to run.user.name, root_url %></a></span>
+                    <i class="glyphicon glyphicon-time"></i> <%= time_ago_in_words(run.created_at) %> ago by <span><%= link_to run.user.name, run.user %></a></span>
                     <br>
                     <span class="explore"><i class="glyphicon glyphicon-info-sign"></i><%= link_to " #{run.fight.level.name} #{run.fight.boss} - #{run.fight.stamina} stamina", root_url %></span>
                     <br>
                     <span class="explore"><i class="glyphicon glyphicon-tags"></i>   <%= link_to run.captain_class, root_url %></span>
-                    
                     <span class="explore"><i class="glyphicon glyphicon-globe"></i>  <%= link_to run.server, root_url %></span>
-                </small>
+                    <% if current_user?(run.user) %>
+                        <span class="explore"><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, run, method: :delete, data: { confirm: "Delete run?"} %></span>
+                    <% end %>    
+                 </small>
                 </div>
             </div>
             </div>
