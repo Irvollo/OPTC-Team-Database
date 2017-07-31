@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :stages
   resources :searches
   get 'password_resets/new'
 

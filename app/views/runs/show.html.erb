@@ -1,9 +1,17 @@
 <div class="row">
     <aside class="col-sm-12 col-md-3">
-        <section class="search_box">
-            <p>
-                Section for stages 
-            </p>
+        <section class="stages">
+            <% if @run.stages.any? %>
+              <ol class="stages">
+                <%= render @stages %>
+              </ol>
+            <% else %>
+                <% if @run.user == current_user %>
+                    <p>Add stages description!</p>
+                <% else %>
+                    <p>No stages yet</p>
+                <% end %>
+            <% end %>
         </section>
     </aside>
     <div class="col-sm-12 col-md-9">

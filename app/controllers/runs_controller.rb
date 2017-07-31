@@ -25,6 +25,7 @@ class RunsController < ApplicationController
     #Show the run video
     def show 
       @run = Run.find(params[:id])
+      @stages = @run.stages
       if @run.nil?
         redirect_to root_url
       end

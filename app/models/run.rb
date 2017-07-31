@@ -2,6 +2,7 @@ class Run < ActiveRecord::Base
   belongs_to :fight
   belongs_to :level
   belongs_to :user
+  has_many :stages
   acts_as_votable
   
   #This set the order with created at runs appearing first
