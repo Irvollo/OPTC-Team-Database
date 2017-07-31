@@ -1,5 +1,6 @@
 <div class="row">
     <aside class="col-sm-12 col-md-3">
+      <div class="container">
         <section class="search_box">
             <%= form_for @search do |f| %>
               <div class="form-group">
@@ -26,6 +27,7 @@
               <p><%= f.submit "Search" , class: "btn btn-primary"  %></p>
             <% end %>
         </section>
+        </div>
     </aside>
     <div class="col-sm-12 col-md-9">
         <% if @search.runs.count == 0 %>
