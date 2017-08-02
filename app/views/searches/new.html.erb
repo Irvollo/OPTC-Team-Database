@@ -1,5 +1,5 @@
 <div class="row">
-    <aside class="col-sm-12 col-md-3">
+    <aside class="col-sm-3 col-md-3">
       <div class="container">
         <section class="search_box">
             <%= form_for @search do |f| %>
@@ -29,7 +29,7 @@
         </section>
         </div>
     </aside>
-    <div class="col-sm-12 col-md-9">
+    <div class="col-sm-9 col-md-9">
         <% if @search.runs.count == 0 %>
           <h3> No results for this search =(</h3> 
         <% end %>

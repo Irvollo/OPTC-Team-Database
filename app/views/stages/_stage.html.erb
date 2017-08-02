@@ -1,7 +1,10 @@
 <li id="stage-<%= stage.id %>">
-    <h3><%= "Stage #{stage.number}" %></h3>
-    <p>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title"><%= "Stage #{stage.number}" %></h4>
+      </div>
+      <div class="panel-body">
         <%= "#{stage.description}" %>
-    </p>
-    
+      </div>
+    </div>
 </li>

@@ -22,6 +22,12 @@ class RunsController < ApplicationController
         @run = Run.new
     end
     
+    def update
+        @run = Run.find(params[:id])
+        @run.update_attributes(run_params)
+        redirect_to @run
+    end
+    
     #Show the run video
     def show 
       @run = Run.find(params[:id])
@@ -58,7 +64,7 @@ class RunsController < ApplicationController
     private
     
     def run_params
-        params.require(:run).permit(:fight_id,:captain_class, :description ,:youtube_url, :title, :server, :level_id)
+        params.require(:run).permit(:fight_id,:captain_class, :description ,:youtube_url, :title, :server, :level_id, stages_attributes: [ :id, :run_id , :number, :description ])
     end
     
     def correct_user

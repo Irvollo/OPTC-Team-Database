@@ -1,26 +1,42 @@
 <div class="row">
-    <aside class="col-sm-12 col-md-3">
+    <aside class="col-sm-12 col-md-3 panel panel-default">
         <section class="stages">
             <% if @run.stages.any? %>
+                <% if @run.user == current_user %>
+                    <div class ="edit_menu">
+                         <%= link_to "Edit", edit_stage_path(:id => @run.id), remote: true %>
+                    </div>
+                <% end %>
               <ol class="stages">
                 <%= render @stages %>
               </ol>
             <% else %>
                 <% if @run.user == current_user %>
-                    <p>Add stages description!</p>
+                    <div class ="well well-lg">
+                        <h4>No stages description</h4>
+                         <%= link_to "Add one!", new_stage_path(:id => @run.id), remote: true %>
+                    </div>
                 <% else %>
-                    <p>No stages yet</p>
+                    <div class ="well">
+                        <h4>No stages description added yet</h4>
+                    </div>
                 <% end %>
             <% end %>
         </section>
     </aside>
     <div class="col-sm-12 col-md-9">
-        <div class="videowrapper">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="videowrapper">
             <iframe width="420" height="315" src="<%= @run.youtube_embed %>"></iframe>
         </div>
-        <div class="vid_info">
+          </div>
+          <div class="panel-footer">
             <h3><%= @run.title %></h3>
+            <p><%= @run.description %> </p>
+          </div>
         </div>
+                
     </div>
 </div>
 

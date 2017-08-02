@@ -3,6 +3,8 @@ class Run < ActiveRecord::Base
   belongs_to :level
   belongs_to :user
   has_many :stages
+  accepts_nested_attributes_for :stages, allow_destroy: true, update_only: true
+  
   acts_as_votable
   
   #This set the order with created at runs appearing first
