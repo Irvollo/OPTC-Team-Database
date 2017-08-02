@@ -30,15 +30,16 @@
         </div>
     </aside>
     <div class="col-sm-9 col-md-9">
-        <% if @search.runs.count == 0 %>
-          <h3> No results for this search =(</h3> 
-        <% end %>
+
         <div class="runs">
-            <% if !@search%> 
-              <%= render @runs %>
-            <% else %>
-              <%= render @search.runs %>
-            <% end %>  
+            <% if @search %>
+            	<% if @search.runs.count == 0 %>
+            		<h3> No results for this search =(</h3>
+            	<% else %>
+            		<%= render @runs %>
+            		<%= will_paginate @runs %> 
+            	<% end %>
+            <% end %> 
         </div>
     </div>
 </div>

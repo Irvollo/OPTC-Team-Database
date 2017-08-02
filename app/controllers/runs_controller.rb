@@ -43,9 +43,9 @@ class RunsController < ApplicationController
     redirect_to root_url
     @runs = Run.all
     if params[:search]
-      @posts = Run.search(params[:search]).order("created_at DESC")
+      @runs = Run.search(params[:search]).order("created_at DESC")
     else
-      @posts = Run.all.order('created_at DESC')
+      @runs = Run.all.order('created_at DESC')
     end
   end
   

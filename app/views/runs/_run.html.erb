@@ -1,17 +1,16 @@
 <li id="run-<%=run.id %>">
     <div class="container">
         <div class="thumbnail col-xs-12 col-sm-3 col-md-3">
-            <a href="#">
+            <a href="runs/<%= run.id %>">
                 <img src="https://img.youtube.com/vi/<%= run.youtube_id %>/0.jpg" class="img-responsive img-box img-thumbnail"> 
             </a>
             <div class="social-vote">
-                <%= link_to like_run_path(run), method: :put do %>
+                
                   <span class="social-like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
-                <% end %>
+                
                 <%= run.get_upvotes.size %>
-                <%= link_to dislike_run_path(run), method: :put do %>
                   <span class="social-dislike"><i class="glyphicon glyphicon-thumbs-down"></i></span>
-                <% end %>
+                
                 <%= run.get_downvotes.size %>
             </div>
         </div> 

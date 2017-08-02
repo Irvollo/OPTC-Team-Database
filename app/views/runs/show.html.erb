@@ -27,13 +27,25 @@
     <div class="col-sm-12 col-md-9">
         <div class="panel panel-default">
           <div class="panel-body">
-            <div class="videowrapper">
-            <iframe width="420" height="315" src="<%= @run.youtube_embed %>"></iframe>
-        </div>
+              <div class="videowrapper">
+                    <iframe width="420" height="315" src="<%= @run.youtube_embed %>"></iframe>
+              </div>
           </div>
           <div class="panel-footer">
-            <h3><%= @run.title %></h3>
-            <p><%= @run.description %> </p>
+              <div class="social-vote">
+                    <%= link_to like_run_path(@run), method: :put do %>
+                      <span class="social-like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
+                    <% end %>
+                    <%= @run.get_upvotes.size %>
+                    <%= link_to dislike_run_path(@run), method: :put do %>
+                      <span class="social-dislike"><i class="glyphicon glyphicon-thumbs-down"></i></span>
+                    <% end %>
+                    <%= @run.get_downvotes.size %>
+              </div>
+              <div class="run_info">
+                  <h3><%= @run.title %></h3>
+                  <p><%= @run.description %> </p>
+              </div>
           </div>
         </div>
                 
