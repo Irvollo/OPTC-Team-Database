@@ -6,7 +6,7 @@ class SearchesController < ApplicationController
         
         if !params[:id]
             @search = Search.new
-            @runs = Run.paginate(page: params[:page], per_page: 15).order('created_at DESC')
+            @runs = Run.paginate(page: params[:page], per_page: 10).order('created_at DESC')
         else
             @search = Search.find(params[:id])
             @runs = @search.runs.paginate(page: params[:page], per_page: 15).order('created_at DESC')

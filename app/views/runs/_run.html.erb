@@ -1,9 +1,9 @@
 <li id="run-<%=run.id %>">
     <div class="container">
         <div class="thumbnail col-xs-12 col-sm-3 col-md-3">
-            <a href="runs/<%= run.id %>">
+            <%= link_to run do%>
                 <img src="https://img.youtube.com/vi/<%= run.youtube_id %>/0.jpg" class="img-responsive img-box img-thumbnail"> 
-            </a>
+            <% end %>  
             <div class="social-vote">
                 
                   <span class="social-like"><i class="glyphicon glyphicon-thumbs-up"></i></span>

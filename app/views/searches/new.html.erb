@@ -37,7 +37,9 @@
             		<h3> No results for this search =(</h3>
             	<% else %>
             		<%= render @runs %>
-            		<%= will_paginate @runs %> 
+            		<div class="infinite-scrolling">
+            		  <%= will_paginate @runs %> 
+            		</div>
             	<% end %>
             <% end %> 
         </div>
