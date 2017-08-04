@@ -1,4 +1,147 @@
 <% provide(:title, "Help") %>
 <title><%= yield(:title) %> - OPTC Teams</title>
-<h1>Need help?</h1>
-<p>Find me on twitter <a href="http://www.twitter.com/irvollo">@irvollo</a> </p>
+
+<div class="container">
+    
+    <div class="container">
+    <aside class="col-sm-12 col-md-3">
+        <h1>OPTC Teams <br><small>Have a question?</small></h1>
+    </aside>
+    <div class="container col-sm-12 col-md-9">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            This section contains information about the <strong>OPTC Teams database</strong> you can search and read the Frequently Asked Questions here.
+            If you can't find the answer to your question hit me on <a href="https://www.twitter.com/irvollo">Twitter</a>
+        </div>
+    
+        <div class="panel-group" id="accordion">
+            
+            <div class="faqHeader">General questions</div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">How do I add a new team to the database?</a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        Everyone with an account can submit teams to <strong>OPTC Teams</strong> but in order to keep an order of how the teams are displayed you need
+                        to follow this rules:
+                        <br>
+                        <ul>
+                            <li>
+                                <strong>Team name:</strong> 
+                                You must submit a name as "2x Captain, crew1, crew2, crew3, crew4" for teams with the same captains
+                                for example: "2x SW Ace, Raid Heracles, Raid Zephyr, SW Ussop, SW Franky".
+                                <br> <br> 
+                                Teams with different captains must be submitted "Captain1 + Captain2, crew1, crew2, crew3, crew4"
+                                for example "6* Fujitora + Raid Shiki, Raid Doflamingo, RR Momonga, Colo Coby, RR Trebol"
+                                <br>
+                                <ul>
+                                    <br>
+                                    You can name your team members as you want but to keep a convention and let other users search
+                                    your team easily you can use the next prefix for team members:
+                                    <br> <br> 
+                                    <li><strong>"Raid"</strong> for raidbosses("Raid Doflamingo", "Raid Mihawk", "Raid Pica"</li>
+                                    <li><strong>"RR"</strong> for 5* Rare Recruit("RR Kidd", "RR Momonga", "RR Garp"</li>
+                                    <li><strong>"Story"</strong> for Story Characters("Story Garp", "Story Rayleigh", "Story Magellan"</li>
+                                    <li><strong>"FN"</strong> for Fortnight Units("FN Leo", "FN Alvida", "FN Afroluffy"</li>
+                                    <li><strong>"Colo"</strong> for Colosseum Units("Colo Alvida", "Colo Moria", "Colo Ideo"</li>
+                                    <li><strong>"6*"</strong> for Sugorares("6* Rayleigh", "6* Boa Hancock", "6* Ussop"</li>
+                                </ul>
+                            </li>
+                            <br>
+                            <li>
+                                <strong>Youtube url:</strong> 
+                                In order to validate the authenticity of the teams OPTC Teams require a youtube video as a proof
+                                that the guide submitted is valid.
+                                (For the moment only youtube videos are supported)
+                            </li>
+                            <br>
+                            <li><strong>Fight type:</strong> For now only Raids, Colosseum final bosses and Forest are supported maybe this will
+                            expand to new fight types in the future.</li>
+                            <br>
+                            <li><strong>Boss name:</strong> Which raidboss, colo boss or forest is the guide for</li>
+                            <br>
+                            <li>
+                                <strong>Captain class:</strong>
+                                The captain class is the base class of the team (usually the captains class)
+                                <br>
+                                <ul>
+                                    <li><strong>Type: </strong>(STR, DEX, QCK, PSY, INT)</li>
+                                    <li><strong>Class 1: </strong>(Fighter, Stricker, Shooter, Slasher)</li>
+                                    <li><strong>Class 2: </strong>(Powerhouse, Cerebral, Driven, Free Spirit)</li>
+                                    <li><strong>Other: </strong>(Chain Multiplier, Chain Pattern, Zombie, Other)</li>
+                                </ul>
+                            </li>
+                            <br>
+                            <li>
+                                <strong>Server: </strong> 
+                                If at the moment you submit the team, it has an unit exclusive for Japan it needs to be added to this 
+                                category. Global assumes that the team can also be used in Japan.
+                            </li>
+                            <br>
+                            <li>
+                                <strong>Description: </strong> 
+                                You can use this section to mention the specials cooldown, high level description of the level or
+                                something else. This will appear in the run.
+                                (For stages description please use the stages feature inside the run page)
+                            </li>
+                        </ul>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen">Can I submit a random team that I found on youtube?</a>
+                    </h4>
+                </div>
+                <div id="collapseTen" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        We encourage people to submit their own videos and guides. But if for any reason you find a team that 
+                        would be useful on the database or is missing for some category, be free to submit it and add a stages description!
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">I have a team for a fight, how do I record my screen?</a>
+                    </h4>
+                </div>
+                <div id="collapseEleven" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        If you have an <strong>iPhone or iPad</strong>, here is a nice guide of how to record your own gameplay: <a href="http://www.ubergizmo.com/how-to/record-iphone-screen/">link!</a>
+                        If you have an <strong>Android</strong> here is a <a href="https://www.apptamin.com/blog/screen-recorder-for-android/">link!</a>
+                        <br>
+                        Just be sure to upload the video to Youtube and share the link with the community. 
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve">How can I change my run thumbnail?</a>
+                    </h4>
+                </div>
+                <div id="collapseTwelve" class="panel-collapse collapse">
+                    <div class="panel-body">
+                          Run's thumbnails use the Youtube API to be loaded.
+                        <br>
+                        You need to be the video owner to change it from Youtube creator studio menu.
+                        Otherwise you won't be able to change the thumbnail video.
+                    </div>
+                </div>
+            </div>
+        
+
+        </div>
+    </div>
+</div>
+
+
+

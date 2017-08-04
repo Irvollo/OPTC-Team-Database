@@ -4,7 +4,7 @@
             <% if @run.stages.any? %>
                 <% if @run.user == current_user %>
                     <div class ="edit_menu">
-                         <%= link_to "Edit", edit_stage_path(:id => @run.id), remote: true %>
+                         <span class="explore"><i class="glyphicon glyphicon-pencil"></i> <%= link_to "Edit", edit_stage_path(:id => @run.id), remote: true %></span>
                     </div>
                 <% end %>
               <ol class="stages">
@@ -45,6 +45,11 @@
               <div class="run_info">
                   <h3><%= @run.title %></h3>
                   <p><%= @run.description %> </p>
+                  <span class="label label-pill label-primary"><i class="glyphicon glyphicon-info-sign"></i><%=  "#{@run.fight.level.name} #{@run.fight.boss} - #{@run.fight.stamina} stamina" %></span>
+                    
+                    <span class="label label-pill label-primary"><i class="glyphicon glyphicon-tags"></i>   <%=  @run.captain_class %></span>
+                    
+                    <span class="label label-pill label-primary"><i class="glyphicon glyphicon-globe"></i>  <%= @run.server %></span>
               </div>
           </div>
         </div>

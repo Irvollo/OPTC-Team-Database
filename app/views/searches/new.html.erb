@@ -18,7 +18,7 @@
               <div class="form-group">
                 <%= f.label :captain_class, "Captain ability class:" %><br>
                 <% grouped_options = [['Type'], ['STR', 'DEX', 'QCK', 'PSY','INT']], [['Class 1'], ['Fighter', 'Slasher', 'Stricker', 'Shooter']], [['Class 2'], ['Free Spirit', 'Driven', 'Cereral', 'Powerhouse']], [['Other'], ['Other']] %>
-                <%= f.select :captain_class, grouped_options_for_select(grouped_options), include_blank: true %>
+                <%= f.select :captain_class, grouped_options_for_select(grouped_options, f.object.captain_class), include_blank: true %>
               </div>
               <div class="form-group">
                 <%= f.label :server %><br>
@@ -34,7 +34,10 @@
         <div class="runs">
             <% if @search %>
             	<% if @search.runs.count == 0 %>
-            		<h3> No results for this search =(</h3>
+            		<div class="well">
+            		  <h3>Sorry, no results for this search :(</h3>
+            		  <%= link_to "Add a new team?", new_run_path, remote: true %>
+            		</div>
             	<% else %>
             		<%= render @runs %>
             		<div class="infinite-scrolling">
