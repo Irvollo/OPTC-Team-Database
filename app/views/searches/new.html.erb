@@ -30,6 +30,7 @@
         </div>
     </aside>
     <div class="col-sm-9 col-md-9">
+
         <div class="runs">
             <% if @search %>
             	<% if @search.runs.count == 0 %>
@@ -38,7 +39,7 @@
             		  <%= link_to "Add a new team?", new_run_path, remote: true %>
             		</div>
             	<% else %>
-            	  <div class="btn-group dropdown dd-style">
+            	<div class="btn-group dropdown dd-style">
                   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     Order by
                     <span class="caret"></span>
@@ -46,7 +47,7 @@
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <li><a href="#">Most recent</a></li>
                     <li><a href="#">Top Runs</a></li>
-                    <li><a href="#">Oldest</a></li>
+                    <li><%= link_to "Oldest", order: 'created_at ASC'%></li>
                   </ul>
                 </div>
             		<%= render @runs %>

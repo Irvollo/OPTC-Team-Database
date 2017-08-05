@@ -3,13 +3,12 @@ class SearchesController < ApplicationController
     def new
         #@search ||= Search.new
         #@runs = Run.all
-        
         if !params[:id]
             @search = Search.new
             @runs = Run.paginate(page: params[:page], per_page: 20).order('created_at DESC')
         else
             @search = Search.find(params[:id])
-            @runs = @search.runs.paginate(page: params[:page], per_page: 15).order('created_at DESC')
+            @runs = @search.runs.paginate(page: params[:page], per_page: 20).order('created_at DESC')
         end
     end
     
