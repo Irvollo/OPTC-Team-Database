@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731142713) do
+ActiveRecord::Schema.define(version: 20170805162018) do
 
   create_table "fights", force: :cascade do |t|
     t.integer  "level_id"
@@ -38,11 +38,25 @@ ActiveRecord::Schema.define(version: 20170731142713) do
     t.string   "youtube_url"
     t.string   "title"
     t.string   "server"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "level_id"
+    t.integer  "cached_votes_total",      default: 0
+    t.integer  "cached_votes_score",      default: 0
+    t.integer  "cached_votes_up",         default: 0
+    t.integer  "cached_votes_down",       default: 0
+    t.integer  "cached_weighted_score",   default: 0
+    t.integer  "cached_weighted_total",   default: 0
+    t.float    "cached_weighted_average", default: 0.0
   end
 
+  add_index "runs", ["cached_votes_down"], name: "index_runs_on_cached_votes_down"
+  add_index "runs", ["cached_votes_score"], name: "index_runs_on_cached_votes_score"
+  add_index "runs", ["cached_votes_total"], name: "index_runs_on_cached_votes_total"
+  add_index "runs", ["cached_votes_up"], name: "index_runs_on_cached_votes_up"
+  add_index "runs", ["cached_weighted_average"], name: "index_runs_on_cached_weighted_average"
+  add_index "runs", ["cached_weighted_score"], name: "index_runs_on_cached_weighted_score"
+  add_index "runs", ["cached_weighted_total"], name: "index_runs_on_cached_weighted_total"
   add_index "runs", ["created_at", "user_id"], name: "index_runs_on_created_at_and_user_id"
   add_index "runs", ["fight_id"], name: "index_runs_on_fight_id"
   add_index "runs", ["level_id"], name: "index_runs_on_level_id"
