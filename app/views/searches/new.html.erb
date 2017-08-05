@@ -45,9 +45,9 @@
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">Most recent</a></li>
-                    <li><a href="#">Top Runs</a></li>
-                    <li><%= link_to "Oldest", order: 'created_at ASC'%></li>
+                    <li><%= link_to "Most recent", new_search_path(id: @search.id, order: "created_at DESC") %></li>
+                    <li><%= link_to "Top rated", new_search_path(id: @search.id, order: "cached_votes_score DESC") %></li>
+                    <li><%= link_to "Oldest", new_search_path(id: @search.id, order: "created_at ASC") %></li>
                   </ul>
                 </div>
             		<%= render @runs %>

@@ -4,11 +4,21 @@ class SearchesController < ApplicationController
         #@search ||= Search.new
         #@runs = Run.all
         if !params[:id]
-            @search = Search.new
-            @runs = Run.paginate(page: params[:page], per_page: 20).order('created_at DESC')
+            if params[:order]
+                @search = Search.new
+                @runs = Run.all.paginate(page: params[:page], per_page: 10).reorder("#{params[:order]}")
+            else
+                @search = Search.new
+                @runs = Run.all.paginate(page: params[:page], per_page: 10).order("created_at DESC")
+            end
         else
-            @search = Search.find(params[:id])
-            @runs = @search.runs.paginate(page: params[:page], per_page: 20).order('created_at DESC')
+            if params[:order]
+                @search = Search.find(params[:id])
+                @runs =  @search.runs.paginate(page: params[:page], per_page: 10).reorder("#{params[:order]}")
+            else
+                @search = Search.find(params[:id])
+                @runs = @search.runs.paginate(page: params[:page], per_page: 20).order('created_at ASC')
+            end
         end
     end
     
