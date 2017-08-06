@@ -37,6 +37,8 @@ gem 'puma'
 #Vote functionalty
 gem 'acts_as_votable'
 
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

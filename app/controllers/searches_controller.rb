@@ -6,10 +6,10 @@ class SearchesController < ApplicationController
         if !params[:id]
             if params[:order]
                 @search = Search.new
-                @runs = Run.all.paginate(page: params[:page], per_page: 10).reorder("#{params[:order]}")
+                @runs = Run.all.includes(:level, :fight, :user).paginate(page: params[:page], per_page: 10).reorder("#{params[:order]}")
             else
                 @search = Search.new
-                @runs = Run.all.paginate(page: params[:page], per_page: 10).order("created_at DESC")
+                @runs = Run.all.includes(:level, :fight, :user).paginate(page: params[:page], per_page: 10).order("created_at DESC")
             end
         else
             if params[:order]
