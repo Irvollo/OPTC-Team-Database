@@ -11,7 +11,7 @@ class Search < ActiveRecord::Base
   
   def find_runs
     runs = Run.order(:title)
-    runs = runs.where("title like ?", "%#{keywords}%") if keywords.present?
+    runs = runs.where("LOWER(title) like LOWER(?)", "%#{keywords}%") if keywords.present?
     runs = runs.where(level_id: level_id) if level_id.present?
     runs = runs.where(fight_id: fight_id) if fight_id.present?
     runs = runs.where(server: server) if server.present?
